@@ -16,6 +16,7 @@
                 </ul>
             {% endif %}
             <label for="{{ form.planet.id_for_label }}">Your planet:</label>
+            <br>
             {{ form.planet }}
 
         </div>
@@ -29,6 +30,7 @@
                 </ul>
             {% endif %}
             <label for="{{ form.name.id_for_label }}">Your name: </label>
+            <br>
             {{ form.name }}
         </div>
         <br>
@@ -40,7 +42,8 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-            <label for="{{ form.age.id_for_label }}">Your age:  </label>
+            <label for="{{ form.age.id_for_label }}">Your age: </label>
+            <br>
             {{ form.age }}
         </div>
         <br>
@@ -53,6 +56,7 @@
                 </ul>
             {% endif %}
             <label for="{{ form.email.id_for_label }}">Your email:</label>
+            <br>
             {{ form.email }}
         </div>
         <br>

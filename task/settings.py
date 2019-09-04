@@ -24,7 +24,7 @@ SECRET_KEY = 'z9fhda*dkyt9_8f!03_o2epx))1a*j=cuiyv+ikvvgj&o4^x)w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shevyakov-task.herokuapp.com']
+ALLOWED_HOSTS = ['shevyakov-task.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
