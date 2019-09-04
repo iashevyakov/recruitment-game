@@ -1,0 +1,19 @@
+{% extends 'recruiting/base.html' %}
+
+{% block title %}
+    Страница ситхов
+{% endblock %}
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        <h3>Выберите себя</h3>
+
+        {% for sith in siths %}
+            <p><input type="radio" value="{{ sith.id }}" name="selected_sith" id="{{ sith.id }}" required/>
+                <label for="{{ sith.id }}">{{ sith }}</label></p>
+        {% endfor %}
+        <p><input type="submit" value="Далее"/></p>
+    </form>
+    <p><a href="{% url 'recruiting:main' %}">На главную</a></p>
+
+{% endblock %}

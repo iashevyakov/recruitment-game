@@ -1,0 +1,20 @@
+{% extends 'recruiting/base.html' %}
+{% load tags %}
+{% block title %}
+    Вопросы
+{% endblock %}
+{% block body %}
+    <form method="post" onsubmit="radio_checked()">
+        {% csrf_token %}
+        <h3>Вопросы испытания</h3>
+        {% for question in questions %}
+            <p>{{ question.text }}</p>
+            <input type="radio" value="True" name="{{ question.id }}" id="{{ question.id }}True" required/>
+            <label for="{{ question.id }}True">True</label>
+            <input type="radio" value="False" name="{{ question.id }}" id="{{ question.id }}False" required/>
+            <label for="{{ question.id }}False">False</label>
+        {% endfor %}
+
+        <p><input type="submit" value="Далее"></p>
+    </form>
+{% endblock %}

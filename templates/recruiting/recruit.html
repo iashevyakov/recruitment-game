@@ -1,0 +1,71 @@
+{% extends 'recruiting/base.html' %}
+
+{% block title %}
+    Страница рекрутов
+{% endblock %}
+{% block body %}
+    <h3>Добавьте себя</h3>
+    <form method="post">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {% if form.planet.errors %}
+                <ul>
+                    {% for error in form.planet.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <label for="{{ form.planet.id_for_label }}">Your planet:</label>
+            {{ form.planet }}
+
+        </div>
+        <br>
+        <div class="fieldWrapper">
+            {% if form.name.errors %}
+                <ul>
+                    {% for error in form.name.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <label for="{{ form.name.id_for_label }}">Your name: </label>
+            {{ form.name }}
+        </div>
+        <br>
+        <div class="fieldWrapper">
+            {% if form.age.errors %}
+                <ul>
+                    {% for error in form.age.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <label for="{{ form.age.id_for_label }}">Your age:  </label>
+            {{ form.age }}
+        </div>
+        <br>
+        <div class="fieldWrapper">
+            {% if form.email.errors %}
+                <ul>
+                    {% for error in form.email.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <label for="{{ form.email.id_for_label }}">Your email:</label>
+            {{ form.email }}
+        </div>
+        <br>
+        {% if form.non_field_errors %}
+            <ul>
+                {% for error in form.non_field_errors %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+            </ul>
+            <br>
+        {% endif %}
+        <input type="submit" value="Далее"/>
+    </form>
+    <p><a href="{% url 'recruiting:main' %}">На главную</a></p>
+
+{% endblock %}

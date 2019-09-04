@@ -1,0 +1,10 @@
+{% extends 'recruiting/base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+{% block body %}
+    <p><a href="{% url 'recruiting:recruit' %}">Рекруты</a></p>
+    <p><a href="{% url 'recruiting:sith' %}">Ситхи</a></p>
+    <p><a href="{% url 'recruiting:additional' %}">Доп. секция</a></p>
+{% endblock %}

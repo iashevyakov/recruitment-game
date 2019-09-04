@@ -1,0 +1,26 @@
+{% extends 'recruiting/base.html' %}
+
+{% block title %}
+    Ответы рекрута
+{% endblock %}
+
+{% block body %}
+    <h3>Результаты испытания</h3>
+
+    {% for answer in answers %}
+        {{ answer.question }}
+        <p><b>{{ answer.answer }}</b></p>
+    {% endfor %}
+    {% if not three_hands %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Принять"/>
+        </form>
+    {% else %}
+        <p style="color: #ff473b">У вас уже есть 3 Руки Тени.</p>
+
+    {% endif %}
+    <p><a href="{% url 'recruiting:recruits_list' %}">К списку рекрутов</a></p>
+    <p><a href="{% url 'recruiting:sith' %}">К выбору ситха </a></p>
+    <p><a href="{% url 'recruiting:main' %}">На главную</a></p>
+{% endblock %}
