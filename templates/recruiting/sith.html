@@ -12,7 +12,11 @@
             <p><input type="radio" value="{{ sith.id }}" name="selected_sith" id="{{ sith.id }}" required/>
                 <label for="{{ sith.id }}">{{ sith }}</label></p>
         {% endfor %}
-        <p><input type="submit" value="Далее"/></p>
+        {% if siths %}
+            <p><input type="submit" value="Далее"/></p>
+        {% else %}
+            <p>Нет ситхов</p>
+        {% endif %}
     </form>
     <p><a href="{% url 'recruiting:main' %}">На главную</a></p>
 

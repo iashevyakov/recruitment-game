@@ -5,9 +5,13 @@
 {% endblock %}
 {% block body %}
     <h3>Список рекрутов</h3>
-    {% for recruit in recruits %}
-        <p><a href="{% url 'recruiting:recruit_answers' recruit.id %}">{{ recruit }}</a></p>
-    {% endfor %}
+    {% if recruits %}
+        {% for recruit in recruits %}
+            <p><a href="{% url 'recruiting:recruit_answers' recruit.id %}">{{ recruit }}</a></p>
+        {% endfor %}
+    {% else %}
+        <p>Нет доступных рекрутов</p>
+    {% endif %}
     <p><a href="{% url 'recruiting:sith' %}">К выбору ситха </a></p>
 
 {% endblock %}
