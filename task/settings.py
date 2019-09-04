@@ -125,6 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 DEFAULT_FROM_EMAIL = 'test_task_test10@mail.ru'
 SERVER_EMAIL = 'test_task_test10@mail.ru'
 EMAIL_USE_TLS = True
