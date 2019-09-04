@@ -2,7 +2,6 @@ from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 
 
-# Create your models here.
 
 class Planet(models.Model):
     name = models.CharField(unique=True, max_length=20)

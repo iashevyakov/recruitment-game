@@ -6,11 +6,19 @@
 
 {% block body %}
     <h3>Список ситхов с указанием количества Рук Тени : </h3>
-    {% for sith in all_siths %}
-        <p>{{ sith }} : <b>{{ sith.shadow_hands.count }}</b></p>
-    {% endfor %}
+    {% if all_siths %}
+        {% for sith in all_siths %}
+            <p>{{ sith }} : <b>{{ sith.shadow_hands.count }}</b></p>
+        {% endfor %}
+    {% else %}
+        <p>Нет ситхов</p>
+    {% endif %}
     <h3>Список ситхов, у которых более 1-й Руки Тени : </h3>
-    {% for sith in siths_one_more_hands %}
-        <p>{{ sith }}</p>
-    {% endfor %}
+    {% if siths_one_more_hands %}
+        {% for sith in siths_one_more_hands %}
+            <p>{{ sith }}</p>
+        {% endfor %}
+    {% else %}
+        <p>Нет ситхов</p>
+    {% endif %}
 {% endblock %}
