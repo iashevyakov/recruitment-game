@@ -13,6 +13,8 @@ from recruiting.models import Answers, Question, Sith, Recruit
 from copy import deepcopy
 
 
+recruiting_list = 'recruiting:recruits_list'
+
 def main(request):
     return render(request, 'recruiting/main.html')
 
@@ -34,7 +36,7 @@ def recruit(request):
 def sith(request):
     if request.method == "POST":
         request.session['sith_id'] = int(request.POST['selected_sith'][0])
-        return HttpResponseRedirect(reverse('recruiting:recruits_list'))
+        return HttpResponseRedirect(reverse(recruiting_list))
     else:
         if 'recruit_id' in request.session:
             del request.session['recruit_id']
@@ -76,7 +78,7 @@ def recruit_should_not_be_accepted(function):
         if Recruit.objects.get(id=recruit_id).sith is None:
             return function(request, recruit_id, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('recruiting:recruits_list'))
+            return HttpResponseRedirect(reverse(recruiting_list))
 
     return wrap
 
@@ -91,7 +93,7 @@ def recruit_answers(request, recruit_id):
         send_mail('Принятие в орден ситхов',
                   'Вы назначены Рукой Тени к %s с %s.' % (recruit.sith.name, recruit.sith.planet),
                   'test_task_test10@mail.ru', [recruit.email])
-        return HttpResponseRedirect(reverse('recruiting:recruits_list'))
+        return HttpResponseRedirect(reverse(recruiting_list))
     else:
         answers = Answers.objects.filter(recruit_id=recruit_id)
         sith = Sith.objects.get(id=request.session['sith_id'])
