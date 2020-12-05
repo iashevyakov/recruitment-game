@@ -8,7 +8,7 @@
     <h3>Список ситхов с указанием количества Рук Тени : </h3>
     {% if all_siths %}
         {% for sith in all_siths %}
-            <p>{{ sith }} : <b>{{ sith.shadow_hands.count }}</b></p>
+            <p>{{ sith }} : <strong>{{ sith.shadow_hands.count }}</strong></p>
         {% endfor %}
     {% else %}
         <p>Нет ситхов</p>
