@@ -9,7 +9,7 @@
 
     {% for answer in answers %}
         {{ answer.question }}
-        <p><b>{{ answer.answer }}</b></p>
+        <p><strong>{{ answer.answer }}</strong></p>
     {% endfor %}
     {% if not three_hands %}
         <form method="post">
