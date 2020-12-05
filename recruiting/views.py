@@ -126,8 +126,8 @@ def pass_test(request):
         response = render(request, 'recruiting/ok.html')
     else:
         questions = Question.objects.all()
-        random_questions = sample(list(questions), randint(1, len(questions)))
-        response = render(request, 'recruiting/questions.html', {'questions': random_questions})
+#         random_questions = sample(list(questions), randint(1, len(questions)))
+        response = render(request, 'recruiting/questions.html', {'questions': questions})
     return response
 
 
