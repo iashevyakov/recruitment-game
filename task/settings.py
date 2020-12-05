@@ -126,11 +126,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-DEFAULT_FROM_EMAIL = 'test_task_test10@mail.ru'
-SERVER_EMAIL = 'test_task_test10@mail.ru'
+email = 'test_task_test10@mail.ru'
+DEFAULT_FROM_EMAIL = email
+SERVER_EMAIL = email
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
-EMAIL_HOST_USER = 'test_task_test10@mail.ru'
+EMAIL_HOST_USER = email
 EMAIL_HOST_PASSWORD = 'qsecd345'
